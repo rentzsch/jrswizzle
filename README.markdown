@@ -9,10 +9,10 @@ More succinctly: *JRSwizzle wants to be your one-stop-shop for all your method s
 ## Download
 
 	$ cd /path/to/top/of/your/project
-	$ git submodule add git://github.com/rentzsch/jrswizzle.git
+	$ git submodule add git://github.com/rentzsch/jrswizzle.git JRSwizzle
 	$ git submodule init
 	$ git submodule update
-	$ cd jrswizzle
+	$ cd JRSwizzle
 	$ git co v1.0d0
 
 ## Reason for Existence
