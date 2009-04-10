@@ -8,7 +8,12 @@ More succinctly: *JRSwizzle wants to be your one-stop-shop for all your method s
 
 ## Download
 
-JRSwizzle is still under development (set the [http://rentzsch.com/trac/query?status=new&status=assigned&status=reopened&component=JRSwizzle&order=priority open tickets]) -- when it's ready I'll offer a .zip download link. Until then [http://rentzsch.com/trac/browser/trunk/cocoa/JRSwizzle browse the latest source] or check it out with `svn co http://rentzsch.com/svn/trunk/cocoa/JRSwizzle`.
+	$ cd /path/to/top/of/your/project
+	$ git submodule add git://github.com/rentzsch/jrswizzle.git
+	$ git submodule init
+	$ git submodule update
+	$ cd jrswizzle
+	$ git co v1.0d0
 
 ## Reason for Existence
 
@@ -23,6 +28,12 @@ JRSwizzle is still under development (set the [http://rentzsch.com/trac/query?st
 	* Mac OS X v10.5/ppc64 (method_exchangeImplementations+Ballard implementation)
 	* Mac OS X v10.5/x86_64 (method_exchangeImplementations+Ballard implementation)
 * **Robust:** All parameters are checked and JRSwizzle returns an optional `NSError` with high-quality diagnostics.
+
+## Support
+
+Please use [JRSwizzle's Lighthouse project site](http://rentzsch.lighthouseapp.com/projects/28971-jrswizzle/tickets?q=all) to [file bugs or feature requests](http://rentzsch.lighthouseapp.com/projects/28971-jrswizzle/tickets/new).
+
+To contribute, please fork this project, make+commit your changes and then send me a pull request.
 
 ## Comparison
 
