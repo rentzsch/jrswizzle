@@ -10,12 +10,14 @@ More succinctly: *JRSwizzle wants to be your one-stop-shop for all your method s
 
 	$ cd /path/to/top/of/your/project
 	$ git submodule add git://github.com/rentzsch/jrswizzle.git JRSwizzle
-	$ git submodule init
-	$ git submodule update
+	$ git submodule init && git submodule update
+	# OPTIONAL: Execute the following commands if you want to explicitly peg
+	# to a certain version. Otherwise `git submodule update` will keep you
+	# current with HEAD.
 	$ cd JRSwizzle
-	$ git co v1.0d0
+	$ git checkout v1.0d0
 
-## Reason for Existence
+## Reasons for Existence
 
 * **Easy:** Just do this: `[SomeClass jr_swizzle:@selector(foo) withMethod:@selector(my_foo) error:&error];` Voila.
 * **Correct:** There's a subtle interaction between method swizzling and method inheritance. Following in Kevin Ballard's footsteps, this package Does The Right Thing.
