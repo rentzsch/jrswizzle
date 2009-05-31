@@ -79,14 +79,14 @@
 			isa = PBXContainerItemProxy;
 			containerPortal = 08FB7793FE84155DC02AAC07 /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = 7926093E0CF3F98E00A93D12 /* 10.3 Test */;
+			remoteGlobalIDString = 7926093E0CF3F98E00A93D12;
 			remoteInfo = "10.3 Test";
 		};
 		7926094A0CF3FA5300A93D12 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 08FB7793FE84155DC02AAC07 /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = 792608A20CF3F88400A93D12 /* 10.3 */;
+			remoteGlobalIDString = 792608A20CF3F88400A93D12;
 			remoteInfo = 10.3;
 		};
 		79F3DC1F0CF3417200733703 /* PBXContainerItemProxy */ = {
@@ -798,6 +798,7 @@
 		792608A50CF3F88500A93D12 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ARCHS = ppc;
 				COPY_PHASE_STRIP = NO;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_ENABLE_FIX_AND_CONTINUE = YES;
@@ -817,6 +818,7 @@
 		792608A60CF3F88500A93D12 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ARCHS = ppc;
 				COPY_PHASE_STRIP = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				GCC_ENABLE_FIX_AND_CONTINUE = NO;
@@ -835,6 +837,7 @@
 		792609410CF3F98E00A93D12 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ARCHS = ppc;
 				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/JRSwizzleTest_1030";
 				COPY_PHASE_STRIP = NO;
 				FRAMEWORK_SEARCH_PATHS = "$(DEVELOPER_LIBRARY_DIR)/Frameworks";
@@ -865,6 +868,7 @@
 		792609420CF3F98E00A93D12 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ARCHS = ppc;
 				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/JRSwizzleTest_1030";
 				COPY_PHASE_STRIP = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
