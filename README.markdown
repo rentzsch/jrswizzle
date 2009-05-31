@@ -11,9 +11,11 @@ More succinctly: *JRSwizzle wants to be your one-stop-shop for all your method s
 	$ cd /path/to/top/of/your/project
 	$ git submodule add git://github.com/rentzsch/jrswizzle.git JRSwizzle
 	$ git submodule init && git submodule update
+	
 	# OPTIONAL: Execute the following commands if you want to explicitly peg
 	# to a certain version. Otherwise `git submodule update` will keep you
 	# current with HEAD.
+	
 	$ cd JRSwizzle
 	$ git checkout v1.0d0
 
@@ -127,5 +129,16 @@ The source code is distributed under the nonviral [MIT License](http://opensourc
 
 ## Version History
 
-* **v1.0d0:** Apr 09 2009: Moved to github.
-* **v1.0d0:** Dec 28 2007: Under development.
+* **v1.0d1:** May 31 2009
+
+	* [FIX] Soothe valgrind by nulling out `hoisted_method_list->obsolete`, which it apparently reads. ([Daniel Jalkut](http://github.com/rentzsch/jrswizzle/commit/2f677d063202b443ca7a1c46e8b67d67ea6fc88e))
+
+	* [FIX] Xcode 3.2 apparently now needs `ARCHS` set explicitly for 10.3 targets. ([rentzsch](http://github.com/rentzsch/jrswizzle/commit/4478faa40e4fdb322201da20f24d3996193ea48b))
+
+* **v1.0d0:** Apr 09 2009
+
+	* Moved to github.
+
+* **v1.0d0:** Dec 28 2007
+
+	* Under development.
