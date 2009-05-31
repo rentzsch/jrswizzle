@@ -17,7 +17,7 @@ More succinctly: *JRSwizzle wants to be your one-stop-shop for all your method s
 	# current with HEAD.
 	
 	$ cd JRSwizzle
-	$ git checkout v1.0d0
+	$ git checkout v1.0d1
 
 ## Reasons for Existence
 
