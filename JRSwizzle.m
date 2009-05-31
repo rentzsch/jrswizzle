@@ -84,6 +84,7 @@
 		
 		int hoisted_method_count = !directOriginalMethod && !directAlternateMethod ? 2 : 1;
 		struct objc_method_list *hoisted_method_list = malloc(sizeof(struct objc_method_list) + (sizeof(struct objc_method)*(hoisted_method_count-1)));
+        hoisted_method_list->obsolete = NULL;	// soothe valgrind - apparently ObjC runtime accesses this value and it shows as uninitialized in valgrind
 		hoisted_method_list->method_count = hoisted_method_count;
 		Method hoisted_method = hoisted_method_list->method_list;
 		
