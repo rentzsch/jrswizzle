@@ -8,13 +8,14 @@
 #import "JRSwizzle.h"
 #import <objc/objc-class.h>
 
-#define SetNSError(ERROR_VAR, FORMAT,...)	\
+#define SetNSErrorFor(FUNC, ERROR_VAR, FORMAT,...)	\
 	if (ERROR_VAR) {	\
-		NSString *errStr = [@"+[NSObject(JRSwizzle) jr_swizzleMethod:withMethod:error:]: " stringByAppendingFormat:FORMAT,##__VA_ARGS__];	\
+		NSString *errStr = [NSString stringWithFormat:@"%s: " FORMAT,FUNC,##__VA_ARGS__]; \
 		*ERROR_VAR = [NSError errorWithDomain:@"NSCocoaErrorDomain" \
 										 code:-1	\
 									 userInfo:[NSDictionary dictionaryWithObject:errStr forKey:NSLocalizedDescriptionKey]]; \
 	}
+#define SetNSError(ERROR_VAR, FORMAT,...) SetNSErrorFor(__func__, ERROR_VAR, FORMAT, ##__VA_ARGS__)
 
 @implementation NSObject (JRSwizzle)
 
@@ -109,8 +110,55 @@
 }
 
 + (BOOL)jr_swizzleClassMethod:(SEL)origSel_ withClassMethod:(SEL)altSel_ error:(NSError**)error_ {
-	assert(0);
-	return NO;
+	return [object_getClass((id)self) jr_swizzleMethod:origSel_ withMethod:altSel_ error:error_];
+}
+
+
++ (BOOL)jr_aliasMethod:(SEL)methSel_ withSelector:(SEL)aliasSel_ error:(NSError**)error_ {
+	Method method = class_getInstanceMethod(self, methSel_);
+	if (!method) {
+		SetNSError(error_, @"method %@ not found for class %@", NSStringFromSelector(methSel_), NSStringFromClass(self));
+		return NO;
+	}
+	Method otherMethod = class_getInstanceMethod(self, aliasSel_);
+	if (otherMethod) {
+		SetNSError(error_, @"method -[%@ %@] already exists; won't alias to -%@", NSStringFromClass(self), NSStringFromSelector(aliasSel_), NSStringFromSelector(methSel_));
+		return NO;
+	}
+	
+#if OBJC_API_VERSION >= 2
+	class_addMethod(self,
+					aliasSel_,
+					class_getMethodImplementation(self, methSel_),
+					method_getTypeEncoding(method));
+	return YES;
+#else
+	struct objc_method_list *alias_list = malloc(sizeof(struct objc_method_list) + (sizeof(struct objc_method)));
+	alias_list->obsolete = NULL;	// soothe valgrind - apparently ObjC runtime accesses this value and it shows as uninitialized in valgrind
+	alias_list->method_count = 1;
+	alias_list->method_list = alias_method;
+	
+	Method alias_method = hoisted_method_list->method_list;
+	bcopy(method, alias_method, sizeof(struct objc_method));
+	alias_method->method_name = aliasSel_;
+	
+	class_addMethods(self, alias_list);
+	
+	return YES;
+#endif
+}
+
+/* TODO: fix error generation so that these methods, rather than jr_aliasMethod:withSelector:error:, 
+   will be reported as the method name in errors
+ */
++ (BOOL)jr_aliasMethod:(SEL)methSel_ withName:(const char*)aliasName_ error:(NSError**)error_ {
+	return [self jr_aliasMethod:methSel_ withSelector:sel_registerName(aliasName_) error:error_];
+}
++ (BOOL)jr_aliasClassMethod:(SEL)methSel_ withName:(const char*)aliasName_ error:(NSError**)error_ {
+	return [object_getClass((id)self) jr_aliasMethod:methSel_ withSelector:sel_registerName(aliasName_) error:error_];
+}
++ (BOOL)jr_aliasClassMethod:(SEL)methSel_ withSelector:(SEL)aliasSel_ error:(NSError**)error_ {
+	return [object_getClass((id)self) jr_aliasMethod:methSel_ withSelector:aliasSel_ error:error_];	
 }
 
 @end
