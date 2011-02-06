@@ -1,12 +1,5 @@
-/*******************************************************************************
-	JRSwizzle.h
-		Copyright (c) 2007 Jonathan 'Wolf' Rentzsch: <http://rentzsch.com>
-		Some rights reserved: <http://opensource.org/licenses/mit-license.php>
-	
-	Modifications by Jens Ayton:
-		* Removed alias method family (pre ObjC2 version was broken)
-
-	***************************************************************************/
+//	Copyright (c) 2007-2011 Jonathan 'Wolf' Rentzsch: http://rentzsch.com
+//	Some rights reserved: http://opensource.org/licenses/mit-license.php
 
 #import <Foundation/Foundation.h>
 

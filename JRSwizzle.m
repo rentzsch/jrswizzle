@@ -1,9 +1,5 @@
-/*******************************************************************************
-	JRSwizzle.m
-		Copyright (c) 2007 Jonathan 'Wolf' Rentzsch: <http://rentzsch.com>
-		Some rights reserved: <http://opensource.org/licenses/mit-license.php>
-
-	***************************************************************************/
+//	Copyright (c) 2007-2011 Jonathan 'Wolf' Rentzsch: http://rentzsch.com
+//	Some rights reserved: http://opensource.org/licenses/mit-license.php
 
 #import "JRSwizzle.h"
 #import <objc/objc-class.h>
