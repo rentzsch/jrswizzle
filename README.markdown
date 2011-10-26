@@ -35,7 +35,7 @@ More succinctly: *JRSwizzle wants to be your one-stop-shop for all your method s
 
 ## Support
 
-Please use [JRSwizzle's Lighthouse project site](http://rentzsch.lighthouseapp.com/projects/28971-jrswizzle/tickets?q=all) to [file bugs or feature requests](http://rentzsch.lighthouseapp.com/projects/28971-jrswizzle/tickets/new).
+Please use [JRSwizzle's GitHub Issues tab](https://github.com/rentzsch/jrswizzle/issues) to [file bugs or feature requests](https://github.com/rentzsch/jrswizzle/issues/new).
 
 To contribute, please fork this project, make+commit your changes and then send me a pull request.
 
