@@ -2,7 +2,13 @@
 //	Some rights reserved: http://opensource.org/licenses/mit-license.php
 
 #import "JRSwizzle.h"
-#import <objc/objc-class.h>
+
+#if TARGET_OS_IPHONE
+	#import <objc/runtime.h>
+	#import <objc/message.h>
+#else
+	#import <objc/objc-class.h>
+#endif
 
 #define SetNSErrorFor(FUNC, ERROR_VAR, FORMAT,...)	\
 	if (ERROR_VAR) {	\
@@ -25,13 +31,21 @@
 #if OBJC_API_VERSION >= 2
 	Method origMethod = class_getInstanceMethod(self, origSel_);
 	if (!origMethod) {
+#if TARGET_OS_IPHONE
+		SetNSError(error_, @"original method %@ not found for class %@", NSStringFromSelector(origSel_), [self class]);
+#else
 		SetNSError(error_, @"original method %@ not found for class %@", NSStringFromSelector(origSel_), [self className]);
+#endif
 		return NO;
 	}
 	
 	Method altMethod = class_getInstanceMethod(self, altSel_);
 	if (!altMethod) {
+#if TARGET_OS_IPHONE
+		SetNSError(error_, @"alternate method %@ not found for class %@", NSStringFromSelector(altSel_), [self class]);
+#else
 		SetNSError(error_, @"alternate method %@ not found for class %@", NSStringFromSelector(altSel_), [self className]);
+#endif
 		return NO;
 	}
 	
