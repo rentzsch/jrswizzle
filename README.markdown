@@ -2,7 +2,7 @@
 
 ## Description
 
-JRSwizzle is source code package that offers a single, easy, correct+consistent interface for exchanging Objective-C method implementations ("method swizzling") across many versions of Mac OS X, Objective-C and runtime architectures.
+JRSwizzle is source code package that offers a single, easy, correct+consistent interface for exchanging Objective-C method implementations ("method swizzling") across many versions of Mac OS X, iOS, Objective-C and runtime architectures.
 
 More succinctly: *JRSwizzle wants to be your one-stop-shop for all your method swizzling needs.*
 
@@ -17,13 +17,13 @@ More succinctly: *JRSwizzle wants to be your one-stop-shop for all your method s
 	# current with HEAD.
 	
 	$ cd JRSwizzle
-	$ git checkout v1.0d1
+	$ git checkout v1.0
 
 ## Reasons for Existence
 
 * **Easy:** Just do this: `[SomeClass jr_swizzle:@selector(foo) withMethod:@selector(my_foo) error:&error];` Voila.
 * **Correct:** There's a subtle interaction between method swizzling and method inheritance. Following in Kevin Ballard's footsteps, this package Does The Right Thing.
-* **Compatible:** JRSwizzle should Just Work on any version of Mac OS X you care about. Here's the exhaustive compatibility list:
+* **Compatible:** JRSwizzle should Just Work on any version of Mac OS X and iOS you care about. Here's the exhaustive compatibility list:
 	* Mac OS X v10.3/ppc (Ballard implementation)
 	* Mac OS X v10.4/ppc (Ballard implementation)
 	* Mac OS X v10.4/i386 (Ballard implementation)
@@ -31,6 +31,7 @@ More succinctly: *JRSwizzle wants to be your one-stop-shop for all your method s
 	* Mac OS X v10.5/i386 (method_exchangeImplementations+Ballard implementation)
 	* Mac OS X v10.5/ppc64 (method_exchangeImplementations+Ballard implementation)
 	* Mac OS X v10.5/x86_64 (method_exchangeImplementations+Ballard implementation)
+	* iOS 2.0+ (method_exchangeImplementations+Ballard implementation)
 * **Robust:** All parameters are checked and JRSwizzle returns an optional `NSError` with high-quality diagnostics.
 
 ## Support
@@ -128,6 +129,12 @@ There's at least four swizzling implementations floating around. Here's a compar
 The source code is distributed under the nonviral [MIT License](http://opensource.org/licenses/mit-license.php). It's the simplest most permissive license available.
 
 ## Version History
+
+* **v1.0:** Mar 2 2012
+
+	* [NEW] iOS Support. ([Anton Serebryakov](https://github.com/rentzsch/jrswizzle/commit/60ccb350a3577e55d00d3fdfee8b3c0390b8e852]))
+
+	* [NEW] Class method swizzling. ([outis](https://github.com/rentzsch/jrswizzle/pull/1))
 
 * **v1.0d1:** May 31 2009
 
