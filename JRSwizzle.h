@@ -27,4 +27,3 @@
 + (BOOL)jr_swizzleClassMethod:(SEL)origSel_ withClassMethod:(SEL)altSel_ error:(NSError**)error_;
 
 @end
-#define JRSwizzle NS(JRSwizzle)

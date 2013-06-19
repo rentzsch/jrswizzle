@@ -31,7 +31,7 @@
 #define GetClass(obj)	(obj ? obj->isa : Nil)
 #endif
 
-@implementation NSObject (JRSwizzle)
+@implementation NSObject (NS(JRSwizzle))
 
 + (BOOL)jr_swizzleMethod:(SEL)origSel_ withMethod:(SEL)altSel_ error:(NSError**)error_ {
 #if OBJC_API_VERSION >= 2
