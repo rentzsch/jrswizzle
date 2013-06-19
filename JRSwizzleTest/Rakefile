@@ -1,7 +1,7 @@
 PROJECT_TEST_CLASSES_DIR = 'JRSwizzleTest'
 
 def run_or_die(cmd)
-  puts "*** #{cmd}"
+  #puts "*** #{cmd}"
   result = `#{cmd}`
   raise "ERROR: #{cmd} failed" if $?.exitstatus != 0
   result
