@@ -9,7 +9,7 @@ More succinctly: *JRSwizzle wants to be your one-stop-shop for all your method s
 ## Download
 
 	$ cd /path/to/top/of/your/project
-	$ git submodule add git://github.com/rentzsch/jrswizzle.git JRSwizzle
+	$ git submodule add git://github.com/rentzsch/jrswizzle.git JRSwizzle semver-1.x
 	$ git submodule init && git submodule update
 	
 	# OPTIONAL: Execute the following commands if you want to explicitly peg
