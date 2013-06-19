@@ -12,6 +12,10 @@
 	#import <objc/objc-class.h>
 #endif
 
+#if __has_feature(objc_arc)
+	#define autorelease self
+#endif
+
 #define SetNSErrorFor(FUNC, ERROR_VAR, FORMAT,...)	\
 	if (ERROR_VAR) {	\
 		NSString *errStr = [NSString stringWithFormat:@"%s: " FORMAT,FUNC,##__VA_ARGS__]; \

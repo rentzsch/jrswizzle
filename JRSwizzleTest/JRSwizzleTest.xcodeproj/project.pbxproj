@@ -10,6 +10,9 @@
 		794C9B2C1771434100D7B344 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 794C9B2B1771434100D7B344 /* Cocoa.framework */; };
 		794C9B361771434100D7B344 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 794C9B341771434100D7B344 /* InfoPlist.strings */; };
 		794C9B3F1771449800D7B344 /* JRSwizzle.m in Sources */ = {isa = PBXBuildFile; fileRef = 794C9B3E1771449800D7B344 /* JRSwizzle.m */; };
+		794C9B441771478E00D7B344 /* AppleSwizzleTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 794C9B411771478E00D7B344 /* AppleSwizzleTest.m */; };
+		794C9B451771478E00D7B344 /* JRSwizzleTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 794C9B431771478E00D7B344 /* JRSwizzleTest.m */; };
+		794C9B471771479F00D7B344 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 794C9B461771479F00D7B344 /* SenTestingKit.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -23,6 +26,11 @@
 		794C9B371771434100D7B344 /* JRSwizzleTest-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "JRSwizzleTest-Prefix.pch"; sourceTree = "<group>"; };
 		794C9B3D1771449800D7B344 /* JRSwizzle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JRSwizzle.h; path = ../../JRSwizzle.h; sourceTree = "<group>"; };
 		794C9B3E1771449800D7B344 /* JRSwizzle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = JRSwizzle.m; path = ../../JRSwizzle.m; sourceTree = "<group>"; };
+		794C9B401771478E00D7B344 /* AppleSwizzleTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppleSwizzleTest.h; sourceTree = SOURCE_ROOT; };
+		794C9B411771478E00D7B344 /* AppleSwizzleTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppleSwizzleTest.m; sourceTree = SOURCE_ROOT; };
+		794C9B421771478E00D7B344 /* JRSwizzleTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JRSwizzleTest.h; sourceTree = SOURCE_ROOT; };
+		794C9B431771478E00D7B344 /* JRSwizzleTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JRSwizzleTest.m; sourceTree = SOURCE_ROOT; };
+		794C9B461771479F00D7B344 /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -30,6 +38,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				794C9B471771479F00D7B344 /* SenTestingKit.framework in Frameworks */,
 				794C9B2C1771434100D7B344 /* Cocoa.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -58,6 +67,7 @@
 			isa = PBXGroup;
 			children = (
 				794C9B2B1771434100D7B344 /* Cocoa.framework */,
+				794C9B461771479F00D7B344 /* SenTestingKit.framework */,
 				794C9B2D1771434100D7B344 /* Other Frameworks */,
 			);
 			name = Frameworks;
@@ -76,6 +86,10 @@
 		794C9B311771434100D7B344 /* JRSwizzleTest */ = {
 			isa = PBXGroup;
 			children = (
+				794C9B401771478E00D7B344 /* AppleSwizzleTest.h */,
+				794C9B411771478E00D7B344 /* AppleSwizzleTest.m */,
+				794C9B421771478E00D7B344 /* JRSwizzleTest.h */,
+				794C9B431771478E00D7B344 /* JRSwizzleTest.m */,
 				794C9B3D1771449800D7B344 /* JRSwizzle.h */,
 				794C9B3E1771449800D7B344 /* JRSwizzle.m */,
 				794C9B321771434100D7B344 /* Supporting Files */,
@@ -156,6 +170,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				794C9B3F1771449800D7B344 /* JRSwizzle.m in Sources */,
+				794C9B441771478E00D7B344 /* AppleSwizzleTest.m in Sources */,
+				794C9B451771478E00D7B344 /* JRSwizzleTest.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -234,6 +250,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				COMBINE_HIDPI_IMAGES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SYSTEM_APPS_DIR)/Xcode.app/Contents/Developer/Library/Frameworks\"",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "JRSwizzleTest/JRSwizzleTest-Prefix.pch";
 				INFOPLIST_FILE = "JRSwizzleTest/JRSwizzleTest-Info.plist";
@@ -247,6 +267,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				COMBINE_HIDPI_IMAGES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SYSTEM_APPS_DIR)/Xcode.app/Contents/Developer/Library/Frameworks\"",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "JRSwizzleTest/JRSwizzleTest-Prefix.pch";
 				INFOPLIST_FILE = "JRSwizzleTest/JRSwizzleTest-Info.plist";

@@ -1,6 +1,10 @@
 #import "JRSwizzleTest.h"
 #import "JRSwizzle.h"
 
+#if __has_feature(objc_arc)
+	#define autorelease self
+#endif
+
 BOOL aFooCalled, bFooCalled, bAltFooCalled;
 
 #pragma mark -

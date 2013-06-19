@@ -1,6 +1,10 @@
 #import "AppleSwizzleTest.h"
 #import <objc/runtime.h>
 
+#if __has_feature(objc_arc)
+	#define autorelease self
+#endif
+
 BOOL aFooCalled, bFooCalled, bAltFooCalled;
 
 @interface A5 : NSObject {}
