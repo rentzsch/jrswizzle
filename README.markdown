@@ -119,7 +119,7 @@ There's at least four swizzling implementations floating around. Here's a compar
 	</tr>
 </table>
 
- * *Classic* is the canonical `MethodSwizzle()` implementation as described in [CocoaDev's MethodSwizzling page](http://www.cocoadev.com/index.pl?MethodSwizzling).
+ * *Classic* is the canonical `MethodSwizzle()` implementation as described in [CocoaDev's MethodSwizzling page](http://cocoadev.com/MethodSwizzling).
  * *Ballard* is [Kevin Ballard's improved implementation](http://kevin.sb.org/2006/12/30/method-swizzling-reimplemented/) which solves the inherited  method problem.
  * *Apple* is 10.5's new `method_exchangeImplementations` API.
  * *JRSwizzle* is this package.
