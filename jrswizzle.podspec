@@ -13,6 +13,6 @@ Pod::Spec.new do |s|
 
   s.author       = "rentzsch"
   s.source       = { :git => "https://github.com/ipinka/jrswizzle.git", :tag => "v1.0" }
-  s.source_files  = "/", "/*.{h,m}"
+  s.source_files  = "*.{h,m}"
 
 end
