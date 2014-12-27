@@ -1,7 +1,7 @@
 Pod::Spec.new do |s|
 
   s.name         = "jrswizzle-Pinka"
-  s.version      = "1.0"
+  s.version      = "1.0.1"
   s.summary      = "one-stop-shop for all your method swizzling needs"
 
   s.description  = <<-DESC
@@ -13,7 +13,7 @@ Pod::Spec.new do |s|
 
   s.author       = { 'Pinka' => 'pinkacocoapods@gmail.com' }
   s.requires_arc = true
-  s.source       = { :git => "https://github.com/ipinka/jrswizzle.git", :tag => "v1.0" }
+  s.source       = { :git => "https://github.com/ipinka/jrswizzle.git", :tag => "Pinka-v1.0.1" }
   s.source_files  = "*.{h,m}"
 
 end
