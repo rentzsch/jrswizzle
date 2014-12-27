@@ -9,9 +9,9 @@ Pod::Spec.new do |s|
                    DESC
 
   s.homepage     = "http://rentzsch.com"
-  s.license      = "MIT"
+  s.license      = { :type => 'MIT', :file => 'LICENSE' }
 
-  s.author       = "rentzsch"
+  s.author       = { 'Pinka' => 'pinkacocoapods@gmail.com' }
   s.source       = { :git => "https://github.com/ipinka/jrswizzle.git", :tag => "v1.0" }
   s.source_files  = "*.{h,m}"
 
