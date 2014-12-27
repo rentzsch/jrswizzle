@@ -9,9 +9,9 @@ Pod::Spec.new do |s|
                    DESC
 
   s.homepage     = "http://rentzsch.com"
-  s.license      = "MIT (example)"
+  s.license      = "MIT"
 
-  s.author       = "rentzsch"
+  s.author       = "Pinka Chan"
   s.source       = { :git => "https://github.com/ipinka/jrswizzle.git", :tag => "v1.0" }
   s.source_files  = "*.{h,m}"
 
