@@ -12,6 +12,7 @@ Pod::Spec.new do |s|
   s.license      = { :type => 'MIT', :file => 'LICENSE' }
 
   s.author       = { 'Pinka' => 'pinkacocoapods@gmail.com' }
+  s.requires_arc = true
   s.source       = { :git => "https://github.com/ipinka/jrswizzle.git", :tag => "v1.0" }
   s.source_files  = "*.{h,m}"
 
