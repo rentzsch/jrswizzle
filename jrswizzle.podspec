@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
 
-  s.name         = "jrswizzle"
+  s.name         = "jrswizzle-Pinka"
   s.version      = "1.0"
   s.summary      = "one-stop-shop for all your method swizzling needs"
 
