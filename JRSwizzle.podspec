@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name     = 'JRSwizzle'
-  s.version  = '1.0'
+  s.version  = '1.0.1'
   s.license  = 'MIT'
   s.summary  = 'one-stop-shop for all your method swizzling needs'
   s.homepage = 'https://github.com/rentzsch/jrswizzle'
