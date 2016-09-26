@@ -89,14 +89,22 @@
 		if (!directOriginalMethod) {
 			inheritedOriginalMethod = class_getInstanceMethod(self, origSel_);
 			if (!inheritedOriginalMethod) {
-				SetNSError(error_, @"original method %@ not found for class %@", NSStringFromSelector(origSel_), [self className]);
+#if TARGET_OS_IPHONE
+                SetNSError(error_, @"original method %@ not found for class %@", NSStringFromSelector(origSel_), [self class]);
+#else
+                SetNSError(error_, @"original method %@ not found for class %@", NSStringFromSelector(origSel_), [self className]);
+#endif
 				return NO;
 			}
 		}
 		if (!directAlternateMethod) {
 			inheritedAlternateMethod = class_getInstanceMethod(self, altSel_);
 			if (!inheritedAlternateMethod) {
-				SetNSError(error_, @"alternate method %@ not found for class %@", NSStringFromSelector(altSel_), [self className]);
+#if TARGET_OS_IPHONE
+                SetNSError(error_, @"alternate method %@ not found for class %@", NSStringFromSelector(altSel_), [self class]);
+#else
+                SetNSError(error_, @"alternate method %@ not found for class %@", NSStringFromSelector(altSel_), [self className]);
+#endif
 				return NO;
 			}
 		}
