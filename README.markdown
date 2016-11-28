@@ -11,13 +11,13 @@ More succinctly: *JRSwizzle wants to be your one-stop-shop for all your method s
 	$ cd /path/to/top/of/your/project
 	$ git submodule add git://github.com/rentzsch/jrswizzle.git JRSwizzle semver-1.x
 	$ git submodule init && git submodule update
-	
+
 	# OPTIONAL: Execute the following commands if you want to explicitly peg
 	# to a certain version. Otherwise `git submodule update` will keep you
 	# current with HEAD.
-	
+
 	$ cd JRSwizzle
-	$ git checkout v1.0
+	$ git checkout v1.1.0
 
 ## Reasons for Existence
 
@@ -129,6 +129,10 @@ There's at least four swizzling implementations floating around. Here's a compar
 The source code is distributed under the nonviral [MIT License](http://opensource.org/licenses/mit-license.php). It's the simplest most permissive license available.
 
 ## Version History
+
+* **v1.1.0:** Nov 28 2016
+
+	* [NEW] Block-based swizzle api. Note it uses `NSInvocation` which is known to be not the fastest of APIs. ([dhcdht](https://github.com/rentzsch/jrswizzle/pull/18))
 
 * **v1.0:** Mar 2 2012
 

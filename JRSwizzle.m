@@ -1,6 +1,6 @@
-// JRSwizzle.m semver:1.0
-//   Copyright (c) 2007-2011 Jonathan 'Wolf' Rentzsch: http://rentzsch.com
-//   Some rights reserved: http://opensource.org/licenses/MIT
+// JRSwizzle.m semver:1.1.0
+//   Copyright (c) 2007-2016 Jonathan 'Wolf' Rentzsch: http://rentzsch.com
+//   Some rights reserved: http://opensource.org/licenses/mit
 //   https://github.com/rentzsch/jrswizzle
 
 #import "JRSwizzle.h"
@@ -40,7 +40,7 @@
 #endif
 		return NO;
 	}
-	
+
 	Method altMethod = class_getInstanceMethod(self, altSel_);
 	if (!altMethod) {
 #if TARGET_OS_IPHONE
@@ -50,7 +50,7 @@
 #endif
 		return NO;
 	}
-	
+
 	class_addMethod(self,
 					origSel_,
 					class_getMethodImplementation(self, origSel_),
@@ -59,13 +59,13 @@
 					altSel_,
 					class_getMethodImplementation(self, altSel_),
 					method_getTypeEncoding(altMethod));
-	
+
 	method_exchangeImplementations(class_getInstanceMethod(self, origSel_), class_getInstanceMethod(self, altSel_));
 	return YES;
 #else
 	//	Scan for non-inherited methods.
 	Method directOriginalMethod = NULL, directAlternateMethod = NULL;
-	
+
 	void *iterator = NULL;
 	struct objc_method_list *mlist = class_nextMethodList(self, &iterator);
 	while (mlist) {
@@ -82,7 +82,7 @@
 		}
 		mlist = class_nextMethodList(self, &iterator);
 	}
-	
+
 	//	If either method is inherited, copy it up to the target class to make it non-inherited.
 	if (!directOriginalMethod || !directAlternateMethod) {
 		Method inheritedOriginalMethod = NULL, inheritedAlternateMethod = NULL;
@@ -108,13 +108,13 @@
 				return NO;
 			}
 		}
-		
+
 		int hoisted_method_count = !directOriginalMethod && !directAlternateMethod ? 2 : 1;
 		struct objc_method_list *hoisted_method_list = malloc(sizeof(struct objc_method_list) + (sizeof(struct objc_method)*(hoisted_method_count-1)));
         hoisted_method_list->obsolete = NULL;	// soothe valgrind - apparently ObjC runtime accesses this value and it shows as uninitialized in valgrind
 		hoisted_method_list->method_count = hoisted_method_count;
 		Method hoisted_method = hoisted_method_list->method_list;
-		
+
 		if (!directOriginalMethod) {
 			bcopy(inheritedOriginalMethod, hoisted_method, sizeof(struct objc_method));
 			directOriginalMethod = hoisted_method++;
@@ -125,12 +125,12 @@
 		}
 		class_addMethods(self, hoisted_method_list);
 	}
-	
+
 	//	Swizzle.
 	IMP temp = directOriginalMethod->method_imp;
 	directOriginalMethod->method_imp = directAlternateMethod->method_imp;
 	directAlternateMethod->method_imp = temp;
-	
+
 	return YES;
 #endif
 }
