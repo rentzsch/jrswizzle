@@ -139,4 +139,28 @@
 	return [GetClass((id)self) jr_swizzleMethod:origSel_ withMethod:altSel_ error:error_];
 }
 
++ (NSInvocation*)jr_swizzleMethod:(SEL)origSel withBlock:(id)block error:(NSError**)error {
+    IMP blockIMP = imp_implementationWithBlock(block);
+    NSString *blockSelectorString = [NSString stringWithFormat:@"_jr_block_%@_%p", NSStringFromSelector(origSel), block];
+    SEL blockSel = sel_registerName([blockSelectorString cStringUsingEncoding:NSUTF8StringEncoding]);
+    Method origSelMethod = class_getInstanceMethod(self, origSel);
+    const char* origSelMethodArgs = method_getTypeEncoding(origSelMethod);
+    class_addMethod(self, blockSel, blockIMP, origSelMethodArgs);
+
+    NSMethodSignature *origSig = [NSMethodSignature signatureWithObjCTypes:origSelMethodArgs];
+    NSInvocation *origInvocation = [NSInvocation invocationWithMethodSignature:origSig];
+    origInvocation.selector = blockSel;
+
+    [self jr_swizzleMethod:origSel withMethod:blockSel error:nil];
+
+    return origInvocation;
+}
+
++ (NSInvocation*)jr_swizzleClassMethod:(SEL)origSel withBlock:(id)block error:(NSError**)error {
+    NSInvocation *invocation = [GetClass((id)self) jr_swizzleMethod:origSel withBlock:block error:error];
+    invocation.target = self;
+
+    return invocation;
+}
+
 @end
