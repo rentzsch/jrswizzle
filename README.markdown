@@ -1,3 +1,5 @@
+[![Reference Status](https://www.versioneye.com/objective-c/jrswizzle/reference_badge.svg?style=flat)](https://www.versioneye.com/objective-c/jrswizzle/references)
+
 # JRSwizzle
 
 ## Description
