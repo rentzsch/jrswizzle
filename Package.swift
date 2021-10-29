@@ -12,7 +12,8 @@ let package = Package(
     targets: [
         .target(
             name: "JRSwizzle",
-            path: "JRSwizzle"
+            path: "JRSwizzle",
+            publicHeadersPath: "./"
         )
     ]
 )
