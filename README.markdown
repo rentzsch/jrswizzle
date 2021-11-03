@@ -144,7 +144,7 @@ The source code is distributed under the nonviral [MIT License](http://opensourc
 
 * **v1.2.0:** Nov 28 2016
 
-	* [NEW] Added support for Swift Package Manager ([m-ricca] (https://github.com/rentzsch/jrswizzle/pull/24))
+	* [NEW] Added support for Swift Package Manager ([m-ricca](https://github.com/rentzsch/jrswizzle/pull/24))
 
 * **v1.1.0:** Nov 28 2016
 
