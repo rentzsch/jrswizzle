@@ -18,6 +18,18 @@ More succinctly: *JRSwizzle wants to be your one-stop-shop for all your method s
 
 	$ cd JRSwizzle
 	$ git checkout v1.1.0
+	
+## Swift Package Manager
+
+The [Swift Package Manager](https://swift.org/package-manager/) is a tool for automating the distribution of Swift code and is integrated into the `swift` compiler. It is in early development, but MRFilteredLocations does support its use on supported platforms.
+
+Once you have your Swift package set up, adding MRFilteredLocations as a dependency is as easy as adding it to the `dependencies` value of your `Package.swift`.
+
+```swift
+dependencies: [
+    .package(url: "https://github.com/rentzsch/jrswizzle.git", from: "1.2.0")
+]
+```
 
 ## Reasons for Existence
 
@@ -129,6 +141,10 @@ There's at least four swizzling implementations floating around. Here's a compar
 The source code is distributed under the nonviral [MIT License](http://opensource.org/licenses/mit-license.php). It's the simplest most permissive license available.
 
 ## Version History
+
+* **v1.2.0:** Nov 28 2016
+
+	* [NEW] Added support for Swift Package Manager ([m-ricca] (https://github.com/rentzsch/jrswizzle/pull/24))
 
 * **v1.1.0:** Nov 28 2016
 
